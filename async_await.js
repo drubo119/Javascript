@@ -26,3 +26,4 @@ async function getAlData() {
   console.log("getting data 5");
   await getData(5);
 }
+getAlData();
