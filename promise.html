@@ -1,0 +1,95 @@
+// // promise -resolve -reject -finally
+
+// const hasMetting = false;
+
+// const promise = new Promise((resolve, reject) => {
+//   if(!hasMetting) {
+//     const meetingDetails = {
+//       title: 'Project Kickoff',
+//       time: '10:00 AM',
+//       location: 'Conference Room A'
+//     }
+//     resolve(meetingDetails);
+//   }else {
+//     reject(new Error('Meeting already scheduled'));
+//   }
+  
+// })
+
+// promise
+//   .then((meetingDetails) => {
+//     console.log(meetingDetails);
+//   })
+//   .catch((err) => {
+//     console.log(err.message);
+//   })
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Shihab</h1>
+</body>
+
+</html>
+<script>
+  // // Select the first <h1> element in the document and assign it to the variable h1
+  // let h1 = document.querySelector("h1");
+
+  // // Define a function named func that takes three parameters: color, delay, and callback
+  // let func = function (color, delay, callback) {
+  //   // Set a timeout to execute the following code after the specified delay
+  //   setTimeout(() => {
+  //     // Change the color of the h1 element to the specified color
+  //     h1.style.color = color;
+  //     // Call the callback function after changing the color
+  //     callback();
+  //   }, delay);
+  // }
+
+  // // Call the func function to change the color of the h1 element to red after a delay of 1000 milliseconds
+  // func("red", 1000, () => {
+  //   // Inside the callback function, call the func function to change the color to blue after a delay of 1000 milliseconds
+  //   func("blue", 1000, () => {
+  //     // Inside the callback function, call the func function to change the color to green after a delay of 1000 milliseconds
+  //     func("green", 1000, () => {
+  //       // Empty function as the last step, since green is the last color change
+  //     });
+  //   });
+  // });
+
+
+
+
+  // Select the first <h1> element in the document and assign it to the variable h1
+        let h1 = document.querySelector("h1");
+
+  // Define a function that returns a Promise to change the color after a delay
+  let changeColor = (color, delay) => {
+    return new Promise((resolve) => {
+          setTimeout(() => {
+            // Change the color of the h1 element
+            h1.style.color = color;
+            // Resolve the Promise after the color change
+            resolve();
+          }, delay);
+    });
+  };
+
+        // Chain the promises to change the color sequentially
+        changeColor("red", 1000)
+    .then(() => changeColor("blue", 1000))
+    .then(() => changeColor("green", 1000))
+    .catch((error) => {
+          // Handle any errors
+          console.error("An error occurred:", error);
+    });
+  </script>
