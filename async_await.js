@@ -27,3 +27,18 @@ async function getAlData() {
   await getData(5);
 }
 getAlData();
+
+// IFFY Function = immediately invoked function expression
+// This is an async function that runs immediately 
+
+(async function() {
+  await getData(1);
+  console.log("getting data 2");
+  await getData(2);
+  console.log("getting data 3");
+  await getData(3);
+  console.log("getting data 4");
+  await getData(4);
+  console.log("getting data 5");
+  await getData(5);
+})();
